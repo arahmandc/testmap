@@ -59,11 +59,11 @@ function init() {
 
   // Use PapaParse to load data from Google Sheets
   // And call the respective functions to add those to the map.
-  Papa.parse(geomURL, {
-    download: true,
-    header: true,
-    complete: addGeoms,
-  });
+  // Papa.parse(geomURL, {
+  //   download: true,
+  //   header: true,
+  //   complete: addGeoms,
+  // });
   Papa.parse(pointsURL, {
     download: true,
     header: true,
