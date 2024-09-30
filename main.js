@@ -10,7 +10,8 @@
 // the first is the geometry layer and the second the points
 
 let pointsURL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSFQw9sVY16eQmN5TIjOH7CUaxeZnl_v6LcdE2goig1pSe9I3hipeOn1sOwmC4fS0AURefRWwcKExct/pub?output=csv";
+  // "https://docs.google.com/spreadsheets/d/e/2PACX-1vSFQw9sVY16eQmN5TIjOH7CUaxeZnl_v6LcdE2goig1pSe9I3hipeOn1sOwmC4fS0AURefRWwcKExct/pub?output=csv";
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vTI0Rvn-WPqx8i5TXvteTrKvqTcyHxNd1War2iMHO_Ez9Sjgq7YjW3V6BXHC5ePUkLcJZjVFefp5hVz/pub?gid=1503930312&single=true&output=csv";
 
 window.addEventListener("DOMContentLoaded", init);
 
