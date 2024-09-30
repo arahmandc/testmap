@@ -162,25 +162,25 @@ function addPoints(data) {
     marker.addTo(pointGroupLayer);
 
     // UNCOMMENT THIS LINE TO USE POPUPS
-    //marker.bindPopup('<h2>' + data[row].name + '</h2>There's a ' + data[row].description + ' here');
+    marker.bindPopup('<h2>' + data[row].name + '</h2>There' + data[row].description + ' here');
 
     // COMMENT THE NEXT GROUP OF LINES TO DISABLE SIDEBAR FOR THE MARKERS
-    marker.feature = {
-      properties: {
-        name: data[row].name,
-        description: data[row].description,
-      },
-    };
-    marker.on({
-      click: function (e) {
-        L.DomEvent.stopPropagation(e);
-        document.getElementById("sidebar-title").innerHTML =
-          e.target.feature.properties.name;
-        document.getElementById("sidebar-content").innerHTML =
-          e.target.feature.properties.description;
-        sidebar.open(panelID);
-      },
-    });
+    // marker.feature = {
+    //   properties: {
+    //     name: data[row].name,
+    //     description: data[row].description,
+    //   },
+    // };
+    // marker.on({
+    //   click: function (e) {
+    //     L.DomEvent.stopPropagation(e);
+    //     document.getElementById("sidebar-title").innerHTML =
+    //       e.target.feature.properties.name;
+    //     document.getElementById("sidebar-content").innerHTML =
+    //       e.target.feature.properties.description;
+    //     sidebar.open(panelID);
+    //   },
+    // });
     // COMMENT UNTIL HERE TO DISABLE SIDEBAR FOR THE MARKERS
 
     // AwesomeMarkers is used to create fancier icons
