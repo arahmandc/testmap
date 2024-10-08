@@ -26,10 +26,10 @@ function init() {
 
   // This is the Carto Positron basemap
   L.tileLayer(
-    "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}{r}.png",
+    "https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}",
     {
       attribution:
-        "&copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> &copy; <a href='http://cartodb.com/attributions'>CartoDB</a>",
+        "&copy; <a href='https://www.google.com/maps/' target='_blank'>Google Hyderabad</a>",
       subdomains: "abcd",
       maxZoom: 19,
     }
@@ -161,7 +161,7 @@ function addPoints(data) {
     marker.addTo(pointGroupLayer);
 
     // UNCOMMENT THIS LINE TO USE POPUPS
-    marker.bindPopup('<h2> Name: ' + data[row].name + '</h2> Type: ' + data[row].description + '');
+    marker.bindPopup('<h3> Name: ' + data[row].name + '</h3> Type: ' + data[row].description + '');
 
     // COMMENT THE NEXT GROUP OF LINES TO DISABLE SIDEBAR FOR THE MARKERS
     // marker.feature = {
