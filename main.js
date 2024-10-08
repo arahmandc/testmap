@@ -26,8 +26,8 @@ function init() {
 
   // This is the Carto Positron basemap
   L.tileLayer(
-    "https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}",
-    {
+    'https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}',
+    {opacity: 1.0,
       attribution:
         "&copy; <a href='https://www.google.com/maps/' target='_blank'>Google Hyderabad</a>",
       subdomains: "abcd",
