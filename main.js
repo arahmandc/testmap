@@ -64,7 +64,6 @@ function init() {
     header: true,
     complete: addGeoms,
   });
-
   Papa.parse(pointsURL, {
     download: true,
     header: true,
@@ -82,7 +81,7 @@ function addGeoms(data) {
   // Start with an empty GeoJSON of type FeatureCollection
   // All the rows will be inserted into a single GeoJSON
   let fc = {
-    type: "Feature",
+    type: "FeatureCollection",
     features: [],
   };
 
@@ -210,7 +209,7 @@ function addPoints(data) {
  */
 function parseGeom(gj) {
   // FeatureCollection
-  if (gj.type == "Feature") {
+  if (gj.type == "FeatureCollection") {
     return gj.features;
   }
 
