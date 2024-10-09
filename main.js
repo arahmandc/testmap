@@ -9,6 +9,8 @@
 // these URLs come from Google Sheets 'shareable link' form
 // the first is the geometry layer and the second the points
 
+let geomURL ="https://docs.google.com/spreadsheets/d/e/2PACX-1vRLLPIPC3OAI2KA537g5xH6qJtdtCFWr9g8BFe3nCcsQ5QZHtstJAt9zVp0dnBWW3TWu40N0WCZh_L6/pub?gid=0&single=true&output=csv";
+
 let pointsURL ="https://docs.google.com/spreadsheets/d/e/2PACX-1vTI0Rvn-WPqx8i5TXvteTrKvqTcyHxNd1War2iMHO_Ez9Sjgq7YjW3V6BXHC5ePUkLcJZjVFefp5hVz/pub?gid=1503930312&single=true&output=csv";
 
 window.addEventListener("DOMContentLoaded", init);
@@ -57,7 +59,12 @@ function init() {
 
   // Use PapaParse to load data from Google Sheets
   // And call the respective functions to add those to the map.
-  
+  Papa.parse(geomURL, {
+    download: true,
+    header: true,
+    complete: addGeoms,
+  });
+
   Papa.parse(pointsURL, {
     download: true,
     header: true,
@@ -75,8 +82,8 @@ function addGeoms(data) {
   // Start with an empty GeoJSON of type FeatureCollection
   // All the rows will be inserted into a single GeoJSON
   let fc = {
-    type: "FeatureCollection",
-    features: [],
+    type: "Feature",
+    properties: [],
   };
 
   for (let row in data) {
@@ -94,8 +101,8 @@ function addGeoms(data) {
   }
 
   // The geometries are styled slightly differently on mouse hovers
-  let geomStyle = { color: "#2ca25f", fillColor: "#99d8c9", weight: 2 };
-  let geomHoverStyle = { color: "green", fillColor: "#2ca25f", weight: 3 };
+  let geomStyle = { color: "#2ca25f", weight: 2 };
+  let geomHoverStyle = { color: "green", weight: 3 };
 
   L.geoJSON(fc, {
     onEachFeature: function (feature, layer) {
@@ -203,8 +210,8 @@ function addPoints(data) {
  */
 function parseGeom(gj) {
   // FeatureCollection
-  if (gj.type == "FeatureCollection") {
-    return gj.features;
+  if (gj.type == "Feature") {
+    return gj.properties;
   }
 
   // Feature
