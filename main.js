@@ -135,9 +135,12 @@ function addGeoms(data) {
 /*
  * addPoints is a bit simpler, as no GeoJSON is needed for the points
  */
+
+var marker = L.markerClusterGroup();
+
 function addPoints(data) {
-  data = data.data;
-  let pointGroupLayer = L.markerClusterGroup().addTo(map);
+  data = data.data; 
+  let pointGroupLayer = L.layerGroup().addTo(map);
 
   // Choose marker type. Options are:
   // (these are case-sensitive, defaults to marker!)
@@ -164,10 +167,9 @@ function addPoints(data) {
     } else {
       marker = L.marker([data[row].lat, data[row].lon]);
     }
-    // marker = L.markerClusterGroup();
     marker.addTo(pointGroupLayer);
 
-    //marker = L.markerClusterGroup();
+    
 
     // UNCOMMENT THIS LINE TO USE POPUPS
     marker.bindPopup('<a href="' + data[row].image + '" target="_blank"><img src=" ' + data[row].image + '" alt="Image" width="200" height="120"></a><br> <h3> Name: ' + data[row].name + '</h3> Type: ' + data[row].description + '');
