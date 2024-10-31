@@ -170,9 +170,9 @@ function addPoints(data) {
     }
     marker.addTo(pointGroupLayer);
 
-    let markers = L.markerClusterGroup();
-        markers.addLayer(L.marker(getRandomLatLng(map)));
-        map.addLayer(markers);
+    // let markers = L.markerClusterGroup();
+    //     markers.addLayer(L.marker(getRandomLatLng(map)));
+    //     map.addLayer(markers);
 
     // UNCOMMENT THIS LINE TO USE POPUPS
     marker.bindPopup('<a href="' + data[row].image + '" target="_blank"><img src=" ' + data[row].image + '" alt="Image" width="200" height="120"></a><br> <h3> Name: ' + data[row].name + '</h3> Type: ' + data[row].description + '');
