@@ -93,6 +93,7 @@ function addGeoms(data) {
         el.properties = {
           name: data[row].name,
           description: data[row].description,
+          image: data[row].image,
         };
         fc.features.push(el);
       });
@@ -136,7 +137,7 @@ function addGeoms(data) {
  * addPoints is a bit simpler, as no GeoJSON is needed for the points
  */
 
-var marker = L.markerClusterGroup();
+
 
 function addPoints(data) {
   data = data.data; 
@@ -169,7 +170,9 @@ function addPoints(data) {
     }
     marker.addTo(pointGroupLayer);
 
-    
+    let markers = L.markerClusterGroup();
+        markers.addLayer(L.marker(getRandomLatLng(map)));
+        map.addLayer(markers);
 
     // UNCOMMENT THIS LINE TO USE POPUPS
     marker.bindPopup('<a href="' + data[row].image + '" target="_blank"><img src=" ' + data[row].image + '" alt="Image" width="200" height="120"></a><br> <h3> Name: ' + data[row].name + '</h3> Type: ' + data[row].description + '');
