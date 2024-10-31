@@ -137,7 +137,7 @@ function addGeoms(data) {
  */
 function addPoints(data) {
   data = data.data;
-  let pointGroupLayer = L.layerGroup().addTo(map);
+  let pointGroupLayer = L.markerClusterGroup().addTo(map);
 
   // Choose marker type. Options are:
   // (these are case-sensitive, defaults to marker!)
@@ -167,7 +167,7 @@ function addPoints(data) {
     // marker = L.markerClusterGroup();
     marker.addTo(pointGroupLayer);
 
-    marker = L.markerClusterGroup();
+    //marker = L.markerClusterGroup();
 
     // UNCOMMENT THIS LINE TO USE POPUPS
     marker.bindPopup('<a href="' + data[row].image + '" target="_blank"><img src=" ' + data[row].image + '" alt="Image" width="200" height="120"></a><br> <h3> Name: ' + data[row].name + '</h3> Type: ' + data[row].description + '');
