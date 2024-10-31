@@ -164,10 +164,13 @@ function addPoints(data) {
     } else {
       marker = L.marker([data[row].lat, data[row].lon]);
     }
+    // marker = L.markerClusterGroup();
     marker.addTo(pointGroupLayer);
 
+    marker = L.markerClusterGroup();
+
     // UNCOMMENT THIS LINE TO USE POPUPS
-    marker.bindPopup('<img src=" ' + data[row].image + '" alt="Image" width="200" height="120"><br> <h3> Name: ' + data[row].name + '</h3> Type: ' + data[row].description + '');
+    marker.bindPopup('<a href="' + data[row].image + '" target="_blank"><img src=" ' + data[row].image + '" alt="Image" width="200" height="120"></a><br> <h3> Name: ' + data[row].name + '</h3> Type: ' + data[row].description + '');
 
     // COMMENT THE NEXT GROUP OF LINES TO DISABLE SIDEBAR FOR THE MARKERS
     // marker.feature = {
